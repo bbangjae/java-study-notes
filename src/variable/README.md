@@ -1,11 +1,15 @@
-# 멤버 변수 초기화와 접근 제어자 이해
+# 멤버 변수 초기화와 접근 제어자에 대한 이해
 
-## 주요 질문
-- 참조형(클래스) 변수는 처음부터 <span style="color: red; font-weight: bold;">멤버 변수</span>인지 <span style="color: blue; font-weight: bold;">지역 변수</span>인지 궁금합니다.
-- 참조형(클래스) 변수를 멤버 변수로 선언할 때 <span style="color: green; font-weight: bold;">기본 초기화</span>가 어떻게 되는지 궁금합니다.
-- 클래스 내 메서드에 <span style="color: red; font-weight: bold;">접근 제어자를 적지 않으면</span>, 외부 클래스의 접근 제어자는 어떻게 되는지 궁금합니다.
+## 핵심 질문
+* **변수의 종류:** 참조형 변수가 멤버 변수와 지역 변수 중 어디에 속하는지 명확히 구분하고 싶습니다.
+* **기본 초기화:** 멤버 변수로 선언된 참조형 변수의 초기값이 무엇인지 알고 싶습니다.
+* **접근 제어:** 메서드에 접근 제어자를 생략했을 때, 외부 클래스에서 해당 메서드에 접근할 수 있는지 궁금합니다.
 
 ## 결론
-- 클래스 <span style="color: red; font-weight: bold;">내부에 선언된</span> 참조형 변수는 <span style="color: red; font-weight: bold;">멤버 변수</span>입니다. 메서드 내에서 선언된 참조형 변수는 <span style="color: blue; font-weight: bold;">지역 변수</span>입니다.
-- <span style="color: red; font-weight: bold;">멤버 변수로 선언된</span> <span style="color: blue; font-weight: bold;">참조형 변수</span>는 <span style="color: red; font-weight: bold;"> 초기화하지 않으면 </span> 기본적으로 `null`로 초기화됩니다.
-- 메서드 선언 시 <span style="color: red; font-weight: bold;"> 접근 제어자를 적지 않으면 </span> 기본적으로 **`default`** (package-private) 접근 제어자를 갖습니다.
+* **변수의 범위:**
+    * **멤버 변수:** 클래스 내부에 선언되어 객체 생성 시 메모리에 할당되며, 객체의 모든 메서드에서 접근 가능합니다.
+    * **지역 변수:** 메서드 내부에 선언되어 메서드 실행 중에만 유효하며, 해당 메서드 내에서만 접근 가능합니다.
+* **참조형 변수의 초기화:**
+    * 멤버 변수로 선언된 참조형 변수는 명시적으로 초기화하지 않으면 `null` 값을 가집니다. 즉, 아무 객체를 참조하지 않는 상태입니다.
+* **접근 제어자:**
+    * 메서드에 접근 제어자를 생략하면 `default` 접근 제어자가 부여됩니다. `default` 접근 제어자를 가진 메서드는 같은 패키지 내의 클래스에서만 접근할 수 있습니다.
