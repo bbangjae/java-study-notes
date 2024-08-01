@@ -1,4 +1,4 @@
-package staticexamples.staticvariable;
+package staticexamples.variable;
 
 public class StaticVariableExampleMain {
     public static void main(String[] args) {
