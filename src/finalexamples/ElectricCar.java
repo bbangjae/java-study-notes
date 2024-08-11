@@ -1,4 +1,4 @@
-package finalexample;
+package finalexamples;
 
 public class ElectricCar extends Car {
     String name;
