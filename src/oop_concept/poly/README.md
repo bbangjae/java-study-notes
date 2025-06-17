@@ -7,7 +7,9 @@
 4. [🏷️ 다형성(Polymorphism)이란?](#-다형성polymorphism이란)
    1. [특징](#특징)
    2. [사용 예시](#사용-예시)
-5. [🏆 결론](#-결론)
+5. [🏷️ 인터페이스와 다형성](#-인터페이스와-다형성)
+    1. [사용 예시](#사용-예시-1) 
+6. [🏆 결론](#-결론)
 
 # 📚 소개
 
@@ -35,6 +37,7 @@
 1. 객체 생성 시 부모와 자식 클래스 모두 메모리에 생성되며, 부모 생성자가 먼저 호출된다.
 2. 메서드 호출 시 실제 객체의 타입에 따라 오버라이딩된 메서드가 실행된다.
 3. 필드 접근 시 참조 변수의 타입 기준으로 접근한다.
+4. 업캐스팅/다운캐스팅을 통해 다양한 객체를 하나의 배열이나 컬렉션으로 묶어 처리할 수 있다.
 
 ## 사용 예시
 
@@ -68,18 +71,59 @@ class Caw extends Animal {
 
 
 
-// main.java
+// Main.java
 public class Main {
     public static void main(String[] args) {
 
-        Animal[] aArr = { new Cat(), new Caw() };
-        for (Animal animal : aArr) {
+        Animal[] animals = { new Cat(), new Caw() };
+        for (Animal animal : animals) {
             animalSound(animal);
         }
     }
 
     private static void animalSound(Animal animal) {
         animal.sound();
+    }
+}
+```
+# **🏷️ 인터페이스와 다형성**
+
+> **인터페이스(Interface):** 반드시 구현해야 할 메서드 집합 정의 → 다양한 클래스가 동일한 동작을 여러 방식으로 구현 가능
+    
+## 사용 예시
+- 별도의 객체 생성이나 코드 수정 없이, 기존 객체들의 **다형성 및 인터페이스 구현 여부를 활용하여 동작을 유연하게 확장**할 수 있음을 보여준다.
+
+```java
+// Fly.java
+interface Fly {
+    void fly();
+}
+
+// Bird.java
+public class Bird extends Animal implements Fly {
+
+    @Override
+    public void sound() {
+        System.out.println("짹짹");
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("날고 있습니다.");
+    }
+}
+
+// Main.java
+public class Main {
+    public static void main(String[] args) {
+
+        Animal[] animals = {new Cat(), new Caw(), new Bird()};
+        for (Animal animal : animals) {
+
+            if (animal instanceof Fly) {
+                ((Fly) animal).fly();
+            }
+        }
     }
 }
 ```
