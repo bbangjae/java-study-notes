@@ -1,4 +1,4 @@
-package 예외.nullpointexception;
+package 예외.널포인터예외;
 
 class Grades {
     int korean;

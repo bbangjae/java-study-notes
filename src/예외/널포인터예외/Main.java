@@ -1,4 +1,4 @@
-package 예외.nullpointexception;
+package 예외.널포인터예외;
 
 public class Main {
     public static void main(String[] args) {
