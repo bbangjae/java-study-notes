@@ -1,7 +1,7 @@
 package 예외.예외처리미적용;
 
-public class NetWorkService {
-    public void sendMessage(String message) {
+class NetWorkService {
+    void sendMessage(String message) {
         String address = "https://www.google.com";
         NetWorkClient netWorkClient = new NetWorkClient(address);
 

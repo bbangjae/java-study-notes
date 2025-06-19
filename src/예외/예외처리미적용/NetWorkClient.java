@@ -1,15 +1,15 @@
 package 예외.예외처리미적용;
 
-public class NetWorkClient {
+class NetWorkClient {
     private String address;
     private boolean connectError;
     private boolean sendError;
 
-    public NetWorkClient(String address) {
+    NetWorkClient(String address) {
         this.address = address;
     }
 
-    public String connect() {
+    String connect() {
         if(connectError) {
             return "connectError";
         }
@@ -17,7 +17,7 @@ public class NetWorkClient {
         return "success";
     }
 
-    public String send(String data) {
+    String send(String data) {
         if(sendError) {
             return "sendError";
         }
@@ -25,7 +25,7 @@ public class NetWorkClient {
         return "success";
     }
 
-    public void disconnect() {
+    void disconnect() {
         System.out.println("연결 해제");
     }
 
